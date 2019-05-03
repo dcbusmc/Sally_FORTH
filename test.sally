@@ -1,0 +1,67 @@
+1 2 + . SP ."Answer should be: 3" . CR
+3 1 - . SP ."Answer should be: 2" . CR 
+2 4 * . SP ."Answer should be: 8" . CR
+9 9 / . SP ."Answer should be: 1" . CR
+9 5 % . SP ."Answer should be: 4" . CR
+5 NEG . SP ."Answer should be: -5" . CR
+2 DUP . SP . SP ."Answer should be: 2 2" . CR
+1 2 3 DROP . SP . SP ."Answer should be: 2 1" . CR
+4 5 SWAP . SP . SP ."Answer should be: 4 5" . CR
+1 2 3 ROT . SP . SP . SP ."Answer should be: 1 3 2" . CR
+7 x SET x @ . SP ."Variable x set to 7" . CR
+2 x SET x @ . SP ."Tried to set x to 2, should print out 7 value and error message" . CR
+4 y SET y @ . SP ."Variable y set to 4" . CR
+x @ 2 + y ! y @ . SP ."y = x + 2: Answer should be 9" . CR
+z @ ."Tried to fetch unkown variable z, should print out error message" . CR
+5 z ! ."Tried to set unkown variable z to 5, should print out error message" . CR
+1 3 < . SP ."Less than test(1): 1 < 3 => 1" . CR
+3 1 < . SP ."Less than test(2): 3 < 1 => 0" . CR
+3 3 < . SP ."Less than test(3): 3 < 3 => 0" . CR
+1 3 <= . SP ."Less than or equal test(1): 1 <= 3 => 1" . CR
+3 3 <= . SP ."Less than or equal test(2): 3 <= 3 => 1" . CR
+4 3 <= . SP ."Less than or equal test(3): 4 <= 3 => 0" . CR
+4 3 == . SP ."Is equal test(1): 4 == 3 => 0" . CR
+4 4 == . SP ."Is equal test(2): 4 == 4 => 1" . CR
+4 4 != . SP ."Is not equal test(1): 4 != 4 => 0" . CR
+5 4 != . SP ."Is not equal test(2): 5 != 4 => 1" . CR
+5 4 >= . SP ."Greater than or equal test(1): 5 >= 4 => 1" . CR
+5 5 >= . SP ."Greater than or equal test(2): 5 >= 5 => 1" . CR
+5 6 >= . SP ."Greater than or equal test(3): 5 >= 6 => 0" . CR
+6 7 > . SP ."Greater than test(1): 6 > 7 => 0" . CR
+7 6 > . SP ."Greater than test(2): 7 > 6 => 1" . CR
+7 7 > . SP ."Greater than test(3): 7 > 7 => 0" . CR
+0 0 AND . SP ."AND test(1): 0 AND 0 => 0" . CR
+0 1 AND . SP ."AND test(2): 0 AND 1 => 0" . CR
+1 1 AND . SP ."AND test(3): 1 AND 1 => 1" . CR
+0 0 OR . SP ."OR test(1): 0 AND 0 => 0" . CR
+0 1 OR . SP ."OR test(2): 0 AND 1 => 1" . CR
+1 1 OR . SP ."OR test(3): 1 AND 1 => 1" . CR
+0 NOT . SP ."NOT test(1): 0 NOT => 1" . CR
+1 NOT . SP ."NOT test(1): 1 NOT => 0" . CR
+1	IFTHEN
+	0	IFTHEN
+		."Should not print" . CR
+		ELSE
+		."Should print" . CR
+		ENDIF
+	ELSE
+	1	IFTHEN
+		."Should also not print" . CR
+		ELSE
+		."Should definately not print" . CR
+		ENDIF
+	ENDIF
+."Test for IFTHEN, ELSE, and ENDIF (includes nested). Only 'Should print' will be displayed" . CR
+1 DO
+	1 DO
+		SWAP DUP . SWAP
+		SP
+		DUP . CR
+		1 + DUP
+	5 > UNTIL
+	DROP
+	CR
+	1 + DUP
+5 > UNTIL
+DROP
+."Test for nested DO UNTIL loops provided by instructor. Should display correct output" . CR
